@@ -22,7 +22,6 @@ sinon on effectue une recherche dans le sous-arbre à partir du noeud start*/
 
 struct _Token *searchTree(void *start,char *name);
 
-
 /* fonction qui renvoie un pointeur vers char indiquant l'etiquette du noeud. (le nom de la rulename, intermediaire ou terminal)
 et indique (si len!=NULL) dans *len la longueur de cette chaine.*/
 
