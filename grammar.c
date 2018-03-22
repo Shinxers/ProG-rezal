@@ -9,8 +9,8 @@ void createNode(struct Node *noeud, char *tagName, char *value, int lg)
 
   }
 
-  struct subNode f;
-  f = (struct subNode)malloc(sizeof(struct subNode));
+  struct subNode *f;
+  f = (struct subNode*)malloc(sizeof(struct subNode));
   if (f ==NULL)
   {
     exit(-1); // dans le cas d'un échec du malloc
@@ -19,8 +19,8 @@ void createNode(struct Node *noeud, char *tagName, char *value, int lg)
 
   strcpy(noeud->tag, tagName);
   strcpy(noeud->buf, value);
-  noeud->len=lg;
-  noeud->fils = &f;
+  noeud->len = lg;
+  noeud->fils = f;
 }
 
 
@@ -31,14 +31,15 @@ void addSubNode(struct Node *pere, struct Node *f)
 
   if (liste==NULL)
   {
-    (pere->fils) = (struct subNode)malloc(sizeof(struct subNode)); // faire une vérif sur le malloc?
-    (pere->fils)->sub = f;
-    (pere->fils)->suivant = NULL;
+    liste = (struct subNode*)malloc(sizeof(struct subNode)); // faire une vérif sur le malloc?
+    liste->sub = f;
+    liste->suivant = NULL;
+    pere->fils = liste;
 
   }
   else if (liste->sub ==NULL)
   {
-    (pere->fils)->sub = f;
+    liste->sub = f;
 
   }
   else
@@ -49,7 +50,7 @@ void addSubNode(struct Node *pere, struct Node *f)
       liste = liste->suivant;
 
     }
-    liste  = (struct subNode)malloc(sizeof(struct subNode)); // faire une vérif sur le malloc?
+    liste  = (struct subNode*)malloc(sizeof(struct subNode)); // faire une vérif sur le malloc?
     liste->sub = f;
     liste->suivant = NULL;
     prec->suivant = liste;
