@@ -59,7 +59,8 @@ void addSubNode(struct Node *pere, struct Node *f)
 
 
 
-int findEndLine (char* buf, int len){
+int findEndLine (char* buf, int len)
+{
   int ind=0;
   int sauv = ind;
 
@@ -71,14 +72,16 @@ int findEndLine (char* buf, int len){
   if (ind==len) return ind;
 
   // sinon on renvoie le caractère juste avant la fin de ligne
-  else{
+  else
+  {
     return ind--;
   }
 }
 
 
 
-int findEndVerif(char* buf, int len, char separateur){
+int findEndVerif(char* buf, int len, char separateur)
+{
   int ind=0;
   int sauv = ind;
 
@@ -92,7 +95,8 @@ int findEndVerif(char* buf, int len, char separateur){
   // sinon on revient en arrière jusqu'à trouver le premier caractère n'étant
   // pas un espace ou un HTAB, ou bien l'élément juste avant le séparateur
   // le cas échéant
-  else{
+  else
+  {
     ind--; //élément avant le dernier séparateur
     sauv= ind; //sauvegarde de cet élément
     // 32 = HTAB et 9 = Space en ASCII
@@ -102,3 +106,4 @@ int findEndVerif(char* buf, int len, char separateur){
     else return ind;
   }
 }
+''
