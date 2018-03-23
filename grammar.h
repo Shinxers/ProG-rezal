@@ -32,10 +32,22 @@ typedef struct subNode
 
 //--------------Prototype des fonctions----------------//
 
+/* on initialise les valeurs d'un noeud dont l'espace mémoire
+a déjà été attribué dans la fonction appelante*/
 void createNode(struct Node *noeud, char *tagName, char *value, int lg);
 
+/* on ajoute le noeud fils initialisé dans la fonction appelée par
+le père, dans les fils du père initialisé précédemment*/
 void addSubNode(struct Node *pere, struct Node *f);
 
+//renvoie un entier ind tel que buf+ind est le dernier élement de la ligne
+int findEndLine (char* buf, int len);
+
+//renvoie un entier ind tel que buf+ind est l'emplacement du
+// dernier caractère non OWS avant le premier nouveau séparateur, sinon
+// l'emplacement du dernier OWS.
+int findEndVerif(char* buf, int len, char separateur);
+}
 
 
 #endif
