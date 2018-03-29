@@ -58,7 +58,7 @@ void addSubNode(struct Node *pere, struct Node *f)
 }
 
 
-
+//aller voir string .h , un truc de type split
 int findEndLine (char* buf, int len)
 {
   int ind=0;
