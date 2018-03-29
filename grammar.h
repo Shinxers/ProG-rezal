@@ -48,5 +48,4 @@ int findEndLine (char* buf, int len);
 // l'emplacement du dernier OWS.
 int findEndVerif(char* buf, int len, char separateur);
 
-
 #endif

@@ -1,5 +1,4 @@
 
-
 all :	main.o api.o grammar.o
 	gcc -o main main.o api.o grammar.o
 

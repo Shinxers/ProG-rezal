@@ -4,6 +4,7 @@ void createNode(struct Node *noeud, char *tagName, char *value, int lg)
 {
   if (noeud ==NULL)
   { // dans le cas d'un échec d'un malloc
+    printf("Echec dans la création du noeud\n");
     exit(-1);
 
   }
@@ -12,6 +13,7 @@ void createNode(struct Node *noeud, char *tagName, char *value, int lg)
   f = (struct subNode*)malloc(sizeof(struct subNode));
   if (f ==NULL)
   {
+    printf("Echec dans la liste chaînée des fils du noeud, espèce de fdn\n");
     exit(-1); // dans le cas d'un échec du malloc
 
   }
@@ -30,7 +32,11 @@ void addSubNode(struct Node *pere, struct Node *f)
 
   if (liste==NULL)
   {
-    liste = (struct subNode*)malloc(sizeof(struct subNode)); // faire une vérif sur le malloc?
+    liste = (struct subNode*)malloc(sizeof(struct subNode));
+    if (liste==NULL){
+      printf("Echec dans la création du fils du noeud\n");
+      exit(-1);
+    }
     liste->sub = f;
     liste->suivant = NULL;
     pere->fils = liste;
@@ -38,8 +44,10 @@ void addSubNode(struct Node *pere, struct Node *f)
   }
   else if (liste->sub ==NULL)
   {
-    liste->sub = f;
-
+    struct subNode* new = (struct subNode*)malloc(sizeof(struct subNode));
+    liste->suivant = new;
+    new->sub = f;
+    new->suivant = NULL;
   }
   else
   {
@@ -49,7 +57,11 @@ void addSubNode(struct Node *pere, struct Node *f)
       liste = liste->suivant;
 
     }
-    liste  = (struct subNode*)malloc(sizeof(struct subNode)); // faire une vérif sur le malloc?
+    liste  = (struct subNode*)malloc(sizeof(struct subNode));
+    if (liste ==NULL){
+      printf("Echec dans la création du fils du noeud\n");
+      exit(-1);
+    }
     liste->sub = f;
     liste->suivant = NULL;
     prec->suivant = liste;
