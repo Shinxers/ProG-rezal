@@ -15,7 +15,7 @@ typedef struct Node
 {
   char *tag;  // nom de la rulename
   char *buf;  // valeur de la rulename
-  int len;  // Longeur
+  int len;  // Longueur
   struct subNode *fils; // pointeur sur la liste chainée des fils du noeud
 } Node;
 
