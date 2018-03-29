@@ -16,7 +16,7 @@ typedef struct Node
   char *tag;  // nom de la rulename
   char *buf;  // valeur de la rulename
   int len;  // Longeur
-  void *fils; // pointeur sur la liste chainée des fils du noeud
+  struct subNode *fils; // pointeur sur la liste chainée des fils du noeud
 } Node;
 
 // Liste chainee de chaque noeud
@@ -47,7 +47,6 @@ int findEndLine (char* buf, int len);
 // dernier caractère non OWS avant le premier nouveau séparateur, sinon
 // l'emplacement du dernier OWS.
 int findEndVerif(char* buf, int len, char separateur);
-}
 
 
 #endif

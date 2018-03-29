@@ -106,4 +106,3 @@ int findEndVerif(char* buf, int len, char separateur)
     else return ind;
   }
 }
-''
